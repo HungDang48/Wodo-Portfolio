@@ -1,6 +1,6 @@
 :root {
   --primary: #8e05c2;
-  --black: #0f0f0f;
+  --black: #000000;
   --white: #fff;
   --gray: #7a7a7a;
 }
@@ -145,6 +145,51 @@ header .container .content .extra-nav a:hover span {
   transition: color 0.3s linear;
 }
 
+/* .hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;  
+  width: 100%;
+  height: 100%;
+  background-image: url("assets/WODO\ LOGO\ black.png");
+  background-size: contain;  
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 1.5;  
+  z-index: 0;
+  pointer-events: none;  
+  animation: rotateAndMove 5s linear forwards;  
+} */
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+
+@keyframes rotateAndMove {
+  0% {
+    transform: rotate(0deg); /* Bắt đầu từ 0 độ */
+    left: -100%; /* Bắt đầu từ ngoài bên trái */
+  }
+  50% {
+    transform: rotate(540deg); /* Quay một vòng rưỡi (360 + 180) */
+    left: 100%; /* Di chuyển ra ngoài màn hình bên phải */
+  }
+  100% {
+    transform: rotate(720deg); /* Quay một vòng tròn hoàn chỉnh (360 + 360) */
+    left: 50%; /* Di chuyển về chính giữa màn hình */
+    transform: translateX(-50%); /* Căn giữa chính xác */
+  }
+}
+
+
+
 .hero {
   position: relative;
   min-height: 100vh;
@@ -264,10 +309,16 @@ header .container .content .extra-nav a:hover span {
 .hero .container .content .text h1 {
   font: bolder 8rem "IBM Plex Sans", sans-serif;
   line-height: 8rem;
+  color: rgb(4, 155, 4)
+   
+}
+.green-nav a{
+  color: green;
 }
 
 .hero .container .content .text .row-2 {
   margin-left: -7rem;
+  color: rgb(255, 16, 4);
 }
 
 .hero .container .content .text .row-2 {
