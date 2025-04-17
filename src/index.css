@@ -1,69 +1,92 @@
 @import "tailwindcss";
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*, *::before, *::after {
+  @apply box-border;
+}
+html {
+  @apply scroll-smooth;
+}
+body {
+  @apply m-0 flex flex-col items-center justify-start min-h-screen w-full
+         bg-black text-white font-sans antialiased;
 }
 
+/* ----------------------------------------
+   Fonts & Color Scheme
+   ---------------------------------------- */
+:root {
+  --clr-bg: #000;
+  --clr-fg: #fff;
+  --clr-accent: #04ff7b;
+  --clr-muted: #7a7a7a;
+}
+
+/* Light mode override */
+@media (prefers-color-scheme: light) {
+  body {
+    @apply bg-white text-gray-900;
+  }
+  :root {
+    --clr-bg: #fff;
+    --clr-fg: #212529;
+    --clr-muted: #6c757d;
+  }
+}
+
+/* ----------------------------------------
+   Typography
+   ---------------------------------------- */
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  @apply font-medium text-[var(--clr-accent)] no-underline;
 }
 a:hover {
-  color: #535bf2;
+  @apply text-emerald-400;
 }
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  @apply text-4xl md:text-6xl font-black leading-tight;
+}
+h2 {
+  @apply text-2xl md:text-4xl font-bold mt-2;
+}
+p {
+  @apply text-base md:text-lg leading-relaxed;
 }
 
+/* ----------------------------------------
+   Buttons
+   ---------------------------------------- */
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+  @apply px-6 py-3 rounded-lg border-2 border-transparent bg-gray-800
+         hover:border-[var(--clr-accent)] transition-colors ease-in-out;
 }
 button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  @apply bg-gray-700;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* ----------------------------------------
+   Hero Shapes & Arrow
+   ---------------------------------------- */
+.arrow {
+  @apply w-16 h-16 border-2 border-transparent rounded-full grid place-items-center
+         animate-bounce cursor-pointer
+         hover:border-[var(--clr-fg)];
+}
+
+/* ----------------------------------------
+   Hero Animations (optional)
+   ---------------------------------------- */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); opacity: 0; }
+  50%      { transform: translateY(1rem); opacity: 1; }
+}
+
+/* ----------------------------------------
+   Utility Overrides
+   ---------------------------------------- */
+.container {
+  @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Remove legacy shape styles */
+.shape-1, .shape-2, .line, .pulse {
+  display: none;
 }
