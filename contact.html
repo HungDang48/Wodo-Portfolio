@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>WODO · Trang chủ</title>
+  <title>WODO · Liên hệ</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
@@ -18,25 +18,23 @@
       <nav class="site-nav" aria-label="Site">
         <a href="about.html">Tụi mình</a>
         <a href="projects.html">Dự án</a>
-        <a href="contact.html">Liên hệ</a>
+        <a href="contact.html" aria-current="page">Liên hệ</a>
       </nav>
       <a href="#" class="cta"><span>Vì một thế giới tốt đẹp hơn</span></a>
     </div>
   </header>
 
-  <!-- ===== HERO ===== -->
-  <section class="hero" id="hero">
-    <video class="bg-video" autoplay muted loop playsinline loading="lazy">
-      <source src="assets/wodo video 3 .mp4" type="video/mp4">
-    </video>
-    <div data-aos="fade-up">
-      <h1>WODO</h1>
-      <h2>Would Thinks — Would Do</h2>
-      <button class="arrow" aria-label="Cuộn xuống" onclick="location.href='about.html'">
-        <box-icon name="chevron-down"></box-icon>
-      </button>
-    </div>
-  </section>
+  <main class="contact-wrapper" style="padding-top:8rem">
+    <section class="contact" data-aos="fade-up">
+      <h2 class="section-heading">Kết nối</h2>
+      <form>
+        <input type="text" placeholder="Tên của bạn" aria-label="Tên của bạn">
+        <input type="email" placeholder="Email" aria-label="Email">
+        <textarea rows="4" placeholder="Bạn cần hỗ trợ gì?" aria-label="Tin nhắn"></textarea>
+        <button type="submit">Gửi</button>
+      </form>
+    </section>
+  </main>
 
   <!-- ===== FOOTER ===== -->
   <footer>

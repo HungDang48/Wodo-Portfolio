@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>WODO · Trang chủ</title>
+  <title>WODO · Dự án</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
@@ -17,26 +17,31 @@
       <a href="index.html" class="logo">WODO</a>
       <nav class="site-nav" aria-label="Site">
         <a href="about.html">Tụi mình</a>
-        <a href="projects.html">Dự án</a>
+        <a href="projects.html" aria-current="page">Dự án</a>
         <a href="contact.html">Liên hệ</a>
       </nav>
       <a href="#" class="cta"><span>Vì một thế giới tốt đẹp hơn</span></a>
     </div>
   </header>
 
-  <!-- ===== HERO ===== -->
-  <section class="hero" id="hero">
-    <video class="bg-video" autoplay muted loop playsinline loading="lazy">
-      <source src="assets/wodo video 3 .mp4" type="video/mp4">
-    </video>
-    <div data-aos="fade-up">
-      <h1>WODO</h1>
-      <h2>Would Thinks — Would Do</h2>
-      <button class="arrow" aria-label="Cuộn xuống" onclick="location.href='about.html'">
-        <box-icon name="chevron-down"></box-icon>
-      </button>
+  <main class="container" style="padding-top:8rem">
+    <h2 class="section-heading" data-aos="fade-up">Dự án nổi bật</h2>
+
+    <div class="project-grid" data-aos="fade-up" data-aos-delay="300">
+      <div class="project-card">
+        <img src="assets/WODO LOGO 2.png" alt="Novaspace">
+        <div class="desc"><h3>Novaspace</h3></div>
+      </div>
+      <div class="project-card">
+        <img src="assets/WODO LOGO 2.png" alt="Novaship">
+        <div class="desc"><h3>Novaship</h3></div>
+      </div>
+      <div class="project-card">
+        <img src="assets/WODO LOGO 2.png" alt="Novascentauri">
+        <div class="desc"><h3>Novascentauri</h3></div>
+      </div>
     </div>
-  </section>
+  </main>
 
   <!-- ===== FOOTER ===== -->
   <footer>
