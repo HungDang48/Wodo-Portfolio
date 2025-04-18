@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { FileUser, FolderOpenDot, Contact } from 'lucide-react';
+import { FileUser, FolderOpenDot, Contact, PiggyBank, Images } from 'lucide-react';
 
 export default function Header() {
   const [hide, setHide] = useState(false);
@@ -36,7 +36,7 @@ export default function Header() {
             to="/about"
             className={({ isActive }) => `${isActive ? 'text-accent' : ''} flex items-center gap-1 transition`}
           >
-            <FileUser className="w-5 h-5" />
+            <FileUser className="w-4 h-4" />
             <span>Tụi mình</span>
           </NavLink>
 
@@ -44,7 +44,7 @@ export default function Header() {
             to="/projects"
             className={({ isActive }) => `${isActive ? 'text-accent' : ''} flex items-center gap-1 transition`}
           >
-            <FolderOpenDot className="w-5 h-5" />
+            <FolderOpenDot className="w-4 h-4" />
             <span>Dự án</span>
           </NavLink>
 
@@ -52,8 +52,24 @@ export default function Header() {
             to="/contact"
             className={({ isActive }) => `${isActive ? 'text-accent' : ''} flex items-center gap-1 transition`}
           >
-            <Contact className="w-5 h-5" />
+            <Contact className="w-4 h-4" />
             <span>Liên hệ</span>
+          </NavLink>
+
+          <NavLink
+            to="/images"
+            className={({ isActive }) => `${isActive ? 'text-accent' : ''} flex items-center gap-1 transition`}
+          >
+            <Images className="w-4 h-4" />
+            <span>Hình ảnh</span>
+          </NavLink>
+
+          <NavLink
+            to="/donate"
+            className={({ isActive }) => `${isActive ? 'text-accent' : ''} flex items-center gap-1 transition`}
+          >
+            <PiggyBank className="w-4 h-4" />
+            <span>Quyên góp</span>
           </NavLink>
         </nav>
 
