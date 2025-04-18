@@ -1,12 +1,14 @@
-import React from 'react';
-// Swiper imports
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/effect-cube';
-import 'swiper/css/pagination';
-import { EffectCube, Pagination } from 'swiper/modules';
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css'
+import 'swiper/css/effect-cube'
+import 'swiper/css/pagination'
+import { EffectCube, Pagination } from 'swiper/modules'
+import { motion } from 'framer-motion'
 
 export default function Projects() {
+  const navigate = useNavigate()
   const phases = [
     {
       title: 'Giai đoạn 1',
@@ -51,7 +53,16 @@ export default function Projects() {
   ];
 
   return (
-    <section className="container mx-auto py-16" data-aos="fade-up">
+    <section className="container mx-auto py-16 relative overflow-hidden">
+      {/* Hình trang trí góc trên */}
+      <motion.img
+        src="/assets/shape-top.svg"
+        alt=""
+        className="absolute top-0 left-0 w-32 opacity-30"
+        animate={{ rotate: 360 }}
+        transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
+      />
+
       <h2 className="section-heading mb-8 text-center">CÁC GIAI ĐOẠN CHÍNH</h2>
       <Swiper
         effect="cube"
@@ -61,23 +72,36 @@ export default function Projects() {
         modules={[EffectCube, Pagination]}
         className="mySwiper max-w-4xl mx-auto"
       >
-        {phases.map((phase) => (
+        {phases.map((phase, idx) => (
           <SwiperSlide key={phase.title}>
-            <div className="bg-[#111] rounded-xl overflow-hidden shadow-lg p-6 h-full flex flex-col">
-              <img src={phase.img} alt={phase.title} className="w-full h-40 object-cover brightness-90 rounded-md mb-4" />
-              <h3 className="text-2xl font-bold mb-4 text-center">{phase.title}</h3>
-              <div className="flex-1 overflow-auto">
-                {phase.sections.map((sec) => (
-                  <div key={sec.title} className="mb-3">
-                    <h4 className="text-lg font-semibold">{sec.title}</h4>
-                    <p className="text-sm leading-snug">{sec.content}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <motion.div
+              className="bg-white rounded-xl shadow-lg p-6 h-full flex flex-col cursor-pointer"
+              onClick={() => navigate(`/phases/${idx}`)}
+              whileHover={{ scale: 1.03 }}
+            >
+              <img
+                src={phase.img}
+                alt={phase.title}
+                className="w-full h-40 object-cover rounded-md mb-4"
+              />
+              <h3 className="text-2xl font-bold mb-2 text-center">{phase.title}</h3>
+              <p className="text-sm text-gray-600 text-center">
+                {/* Hiển thị 1 dòng tóm tắt */}
+                {phase.sections[0].content}
+              </p>
+            </motion.div>
           </SwiperSlide>
         ))}
       </Swiper>
+
+      {/* Hình trang trí góc dưới */}
+      <motion.img
+        src="/assets/shape-bottom.svg"
+        alt=""
+        className="absolute bottom-0 right-0 w-40 opacity-20"
+        animate={{ y: [0, 20, 0] }}
+        transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+      />
     </section>
-  );
+  )
 }
