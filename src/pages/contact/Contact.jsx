@@ -4,9 +4,9 @@ export default function Contact() {
       <h2 className="section-heading mb-8 text-center">Kết nối</h2>
       <div className="max-w-lg mx-auto bg-[#111] p-8 rounded-xl shadow-lg">
         <div className="mb-6 text-gray-300">
-          <p><strong>Email:</strong> support@novaspace.org</p>
-          <p><strong>Điện thoại:</strong> +84 912 345 678</p>
-          <p><strong>Địa chỉ:</strong> 123 Đường Lương Y, Quận 1, TP. HCM</p>
+          <p><strong>Email:</strong>wodobwc2@gmail.com</p>
+          <p><strong>Điện thoại:</strong> +84 369 259 468  </p>
+          <p><strong>Địa chỉ:</strong>TP. HCM</p>
         </div>
         <form className="grid gap-4">
           <input
