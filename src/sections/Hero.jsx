@@ -51,19 +51,22 @@ export default function Hero({ theme, toggleTheme }) {
         />
 
         {/* short‑info bar */}
-        <div className="short-info w-full flex justify-between px-8 mt-16 text-white">
-          <div className="left-side space-y-1" data-aos="fade-up-right">
-            <h1 className="text-lg">PATHFINDER SCOUTS VIETNAM</h1>
-            <p className="time text-sm"></p>
-          </div>
-          <div className="right-side space-y-1 text-right" data-aos="fade-up-left">
-            <p className="text-sm italic">vì tha nhân, vì một xã hội tốt đẹp</p>
-            <h1 className="flex items-center gap-2">
-              <span className="pulse inline-block w-1 h-6 bg-green-400 rounded"></span>
-              BETTER WORLD CAMP 2025
-            </h1>
-          </div>
-        </div>
+        <div className="short-info w-full flex flex-wrap justify-between px-8 mt-16 text-white">
+  <div className="left-side space-y-1 w-full md:w-1/2" data-aos="fade-up-right">
+    <h2 className="text-[20px]">PATHFINDER SCOUTS VIETNAM</h2>
+    <p className="time text-sm"></p>
+  </div>
+  <div className="right-side space-y-1 text-right w-full md:w-1/2" data-aos="fade-up-left">
+    <p className="text-sm italic">vì tha nhân, vì một xã hội tốt đẹp</p>
+    <h2 className="text-[20px] flex items-center gap-2 justify-end">
+      <span className="pulse inline-block w-1 h-6 bg-green-400 rounded"></span>
+      BETTER WORLD CAMP 2025
+    </h2>
+  </div>
+</div>
+
+
+
       </div>
     </section>
   );
