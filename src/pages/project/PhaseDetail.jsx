@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { phases } from "../../data/phasesData.js"
 import { motion } from 'framer-motion'
@@ -8,6 +8,14 @@ export default function PhaseDetail() {
   const { phaseId } = useParams()
   const navigate = useNavigate()
   const phase = phases[Number(phaseId)]
+
+  useEffect(() => {
+    // Kiểm tra phaseId hợp lệ
+    if (isNaN(phaseId) || Number(phaseId) < 0 || Number(phaseId) >= phases.length) {
+      console.error('Invalid phaseId:', phaseId)
+      navigate('/not-found')
+    }
+  }, [phaseId, navigate])
 
   if (!phase) return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
@@ -54,6 +62,10 @@ export default function PhaseDetail() {
               src={phase.img}
               alt={phase.title}
               className="w-full h-full object-cover"
+              onError={(e) => {
+                e.target.onerror = null
+                e.target.src = '/placeholder-image.png' // Thêm ảnh placeholder nếu ảnh chính không load được
+              }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
             <motion.h1 
@@ -136,7 +148,7 @@ export default function PhaseDetail() {
         animate={{ rotate: 360 }}
         transition={{ repeat: Infinity, duration: 150, ease: "linear" }}
       >
-        <img src="/assets/pattern.svg" alt="" className="w-full h-full object-cover opacity-3" />
+        <img src="/img/pattern.svg" alt="" className="w-full h-full object-cover opacity-3" />
       </motion.div>
     </div>
   )

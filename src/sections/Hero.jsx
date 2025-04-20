@@ -16,7 +16,7 @@ export default function Hero({ theme, toggleTheme }) {
       {/* background video */}
       <video
         className="absolute inset-0 w-full h-full object-cover z-0"
-        src="./src/assets/wodo video 3 .mp4"
+        src="/Video/wodo video 3 .mp4"
         autoPlay
         muted
         loop
